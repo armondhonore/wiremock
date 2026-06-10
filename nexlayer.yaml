@@ -1,0 +1,10 @@
+application:
+  name: warm-vale-wiremock
+  pods:
+    - name: app
+      image: "# filled by pipeline"
+      path: /
+      servicePorts:
+        - 8080
+      vars:
+        JAVA_OPTS: "-XX:MaxRAMPercentage=75.0 -XX:+UseContainerSupport"
