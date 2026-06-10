@@ -1,13 +1,72 @@
 # Nexlayer Build Failure Report
 
-**Pipeline:** 19eb395fd26
+**Pipeline:** 19eb3ac67ed
 **Repository:** https://github.com/armondhonore/wiremock
-**Error category:** image_pull_failed
-**Error summary:** Kaniko reported success but image not found in registry: image "registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/wiremock:9eb395f-fix8" not found in registry after Kaniko push — Kaniko push may have failed silently
+**Error category:** unknown
+**Error summary:** Build failed — see build log for details.
 
 ## Build log
 ```
+[36mINFO[0m[0002] Checking for cached layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:8cd874222ff4906ce4a6351badcee572ae8bd6c5a34e037a7143ac24597d1975... 
+[36mINFO[0m[0002] No cached layer found for cmd RUN sed -i "s/apply plugin: 'maven'//g" build.gradle &&     sed -i "s/compile /implementation /g" build.gradle &&     sed -i "s/testCompile /testImplementation /g" build.gradle 
+[36mINFO[0m[0002] Unpacking rootfs as cmd COPY build.gradle* settings.gradle* gradle.properties* ./ requires it. 
+[36mINFO[0m[0011] WORKDIR /app                                 
+[36mINFO[0m[0011] Cmd: workdir                                 
+[36mINFO[0m[0011] Changed working directory to /app            
+[36mINFO[0m[0011] Creating directory /app with uid 0 and gid 0 
+[36mINFO[0m[0011] Taking snapshot of files...                  
+[36mINFO[0m[0011] Resolving srcs [build.gradle* settings.gradle* gradle.properties*]... 
+[36mINFO[0m[0011] COPY build.gradle* settings.gradle* gradle.properties* ./ 
+[36mINFO[0m[0011] Resolving srcs [build.gradle* settings.gradle* gradle.properties*]... 
+[36mINFO[0m[0011] Taking snapshot of files...                  
+[36mINFO[0m[0011] COPY gradle ./gradle                         
+[36mINFO[0m[0011] Taking snapshot of files...                  
+[36mINFO[0m[0011] COPY gradlew ./                              
+[36mINFO[0m[0011] Taking snapshot of files...                  
+[36mINFO[0m[0011] RUN chmod +x gradlew                         
+[36mINFO[0m[0011] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0012] COPY src ./src                               
+[36mINFO[0m[0012] Taking snapshot of files...                  
+[36mINFO[0m[0012] RUN sed -i "s/apply plugin: 'maven'//g" build.gradle &&     sed -i "s/compile /implementation /g" build.gradle &&     sed -i "s/testCompile /testImplementation /g" build.gradle 
+[36mINFO[0m[0012] Initializing snapshotter ...                 
+[36mINFO[0m[0012] Taking snapshot of full filesystem...        
+[36mINFO[0m[0013] Cmd: /bin/sh                                 
+[36mINFO[0m[0013] Args: [-c sed -i "s/apply plugin: 'maven'//g" build.gradle &&     sed -i "s/compile /implementation /g" build.gradle &&     sed -i "s/testCompile /testImplementation /g" build.gradle] 
+[36mINFO[0m[0013] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
+[36mINFO[0m[0013] Performing slow lookup of group ids for root 
+[36mINFO[0m[0013] Running: [/bin/sh -c sed -i "s/apply plugin: 'maven'//g" build.gradle &&     sed -i "s/compile /implementation /g" build.gradle &&     sed -i "s/testCompile /testImplementation /g" build.gradle] 
+[36mINFO[0m[0013] Taking snapshot of full filesystem...        
+[36mINFO[0m[0013] RUN ./gradlew jar -x test --no-daemon -q     
+[36mINFO[0m[0013] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:8cd874222ff4906ce4a6351badcee572ae8bd6c5a34e037a7143ac24597d1975 to cache now 
+[36mINFO[0m[0013] Cmd: /bin/sh                                 
+[36mINFO[0m[0013] Args: [-c ./gradlew jar -x test --no-daemon -q] 
+[36mINFO[0m[0013] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
+[36mINFO[0m[0013] Performing slow lookup of group ids for root 
+[36mINFO[0m[0013] Running: [/bin/sh -c ./gradlew jar -x test --no-daemon -q] 
+[36mINFO[0m[0013] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:8cd874222ff4906ce4a6351badcee572ae8bd6c5a34e037a7143ac24597d1975 
+Downloading http://services.gradle.org/distributions/gradle-1.11-bin.zip
 
+Unzipping /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7/gradle-1.11-bin.zip to /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7
+Exception in thread "main" java.util.zip.ZipException: zip END header not found
+	at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1776)
+	at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1659)
+	at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1666)
+	at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1470)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1433)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:743)
+	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:860)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:258)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:187)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:201)
+	at org.gradle.wrapper.Install.unzip(Install.java:157)
+	at org.gradle.wrapper.Install.access$400(Install.java:26)
+	at org.gradle.wrapper.Install$1.call(Install.java:67)
+	at org.gradle.wrapper.Install$1.call(Install.java:44)
+	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:65)
+	at org.gradle.wrapper.Install.createDist(Install.java:44)
+	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:126)
+	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:56)
+error building image: error building stage: failed to execute command: waiting for process to exit: exit status 1
 ```
 
 ## Repository build artifacts
@@ -89,19 +148,34 @@ buildscript {
 
 ## Last attempted Dockerfile
 ```dockerfile
-FROM mirror.gcr.io/library/gradle:8-jdk21 AS builder
+FROM mirror.gcr.io/library/gradle:7.6-jdk11 AS builder
 WORKDIR /app
-COPY build.gradle* settings.gradle* gradle.properties* ./
+
+# Cache dependencies layer
+COPY build.gradle* settings.gradle* gradle.properties* ./ 
 COPY gradle ./gradle
 COPY gradlew ./
 RUN chmod +x gradlew
-RUN ./gradlew dependencies --no-daemon -q 2>/dev/null || true
+
 COPY src ./src
-RUN ./gradlew jarAll -x test --no-daemon -q
+
+# The build.gradle uses 'compile' and 'testCompile' configurations,
+# which were deprecated in Gradle 4.x and removed in Gradle 7.0.
+# We must replace 'compile' with 'implementation' and 'testCompile' with 'testImplementation'.
+# Also remove the 'maven' plugin which was removed in Gradle 7.0.
+RUN sed -i "s/apply plugin: 'maven'//g" build.gradle && \
+    sed -i "s/compile /implementation /g" build.gradle && \
+    sed -i "s/testCompile /testImplementation /g" build.gradle
+
+# Use the wrapper to build the jar
+RUN ./gradlew jar -x test --no-daemon -q
 
 FROM gcr.io/distroless/java21-debian12
 WORKDIR /app
-COPY --from=builder /app/build/libs/*-standalone.jar app.jar
+
+# Copy the resulting jar from the build/libs directory
+COPY --from=builder /app/build/libs/*.jar app.jar
+
 EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-XX:+UseContainerSupport", "-jar", "app.jar"]
 ```
