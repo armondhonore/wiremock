@@ -1,71 +1,71 @@
 # Nexlayer Build Failure Report
 
-**Pipeline:** 19eb40c6ee5
+**Pipeline:** 19eb4159994
 **Repository:** https://github.com/armondhonore/wiremock
-**Error category:** maven_build
-**Error summary:** Gradle build failed — see build log for details.
+**Error category:** unknown
+**Error summary:** Build failed — see build log for details.
 
 ## Build log
 ```
-[36mINFO[0m[0003] Built cross stage deps: map[0:[/app/build/libs/*-standalone.jar]] 
-[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6.9-jdk8 
+[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6-jdk8 
 [36mINFO[0m[0003] Returning cached image manifest              
-[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6.9-jdk8 
+[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6-jdk8 
 [36mINFO[0m[0003] Returning cached image manifest              
 [36mINFO[0m[0003] Executing 0 build triggers                   
-[36mINFO[0m[0003] Building stage 'mirror.gcr.io/library/gradle:6.9-jdk8' [idx: '0', base-idx: '-1'] 
-[36mINFO[0m[0003] Checking for cached layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440... 
-[36mINFO[0m[0003] No cached layer found for cmd RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle 
-[36mINFO[0m[0003] Unpacking rootfs as cmd COPY . . requires it. 
-[36mINFO[0m[0010] WORKDIR /app                                 
-[36mINFO[0m[0010] Cmd: workdir                                 
-[36mINFO[0m[0010] Changed working directory to /app            
-[36mINFO[0m[0010] Creating directory /app with uid 0 and gid 0 
-[36mINFO[0m[0010] Taking snapshot of files...                  
-[36mINFO[0m[0010] COPY . .                                     
-[36mINFO[0m[0010] Taking snapshot of files...                  
-[36mINFO[0m[0010] RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle 
-[36mINFO[0m[0010] Initializing snapshotter ...                 
-[36mINFO[0m[0010] Taking snapshot of full filesystem...        
-[36mINFO[0m[0013] Cmd: /bin/sh                                 
-[36mINFO[0m[0013] Args: [-c sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle] 
-[36mINFO[0m[0013] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
-[36mINFO[0m[0013] Performing slow lookup of group ids for root 
-[36mINFO[0m[0013] Running: [/bin/sh -c sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle] 
-[36mINFO[0m[0013] Taking snapshot of full filesystem...        
-[36mINFO[0m[0014] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440 to cache now 
-[36mINFO[0m[0014] RUN sed -i 's/<< {/doLast {/g' build.gradle  
-[36mINFO[0m[0014] Cmd: /bin/sh                                 
-[36mINFO[0m[0014] Args: [-c sed -i 's/<< {/doLast {/g' build.gradle] 
-[36mINFO[0m[0014] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
-[36mINFO[0m[0014] Performing slow lookup of group ids for root 
-[36mINFO[0m[0014] Running: [/bin/sh -c sed -i 's/<< {/doLast {/g' build.gradle] 
-[36mINFO[0m[0014] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440 
-[36mINFO[0m[0014] Taking snapshot of full filesystem...        
-[36mINFO[0m[0014] RUN gradle jarAll -x test --no-daemon -q     
-[36mINFO[0m[0014] Cmd: /bin/sh                                 
-[36mINFO[0m[0014] Args: [-c gradle jarAll -x test --no-daemon -q] 
-[36mINFO[0m[0014] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
-[36mINFO[0m[0014] Performing slow lookup of group ids for root 
-[36mINFO[0m[0014] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:cec50dd75bfe6327e436faaec785bbe67e2414711d104aa759bd6f8a8045e632 to cache now 
-[36mINFO[0m[0014] Running: [/bin/sh -c gradle jarAll -x test --no-daemon -q] 
-[36mINFO[0m[0014] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:cec50dd75bfe6327e436faaec785bbe67e2414711d104aa759bd6f8a8045e632 
+[36mINFO[0m[0003] Building stage 'mirror.gcr.io/library/gradle:6-jdk8' [idx: '0', base-idx: '-1'] 
+[36mINFO[0m[0003] Resolving srcs [build.gradle settings.gradle* gradle.properties*]... 
+[36mINFO[0m[0003] Checking for cached layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:2930d106d9c10e1c57bd3ea1179f2c2b42e6a164ecc645feae8f1be3bc6f19a7... 
+[36mINFO[0m[0003] No cached layer found for cmd RUN chmod +x gradlew 
+[36mINFO[0m[0003] Unpacking rootfs as cmd COPY build.gradle settings.gradle* gradle.properties* ./ requires it. 
+[36mINFO[0m[0012] WORKDIR /app                                 
+[36mINFO[0m[0012] Cmd: workdir                                 
+[36mINFO[0m[0012] Changed working directory to /app            
+[36mINFO[0m[0012] Creating directory /app with uid 0 and gid 0 
+[36mINFO[0m[0012] Taking snapshot of files...                  
+[36mINFO[0m[0012] Resolving srcs [build.gradle settings.gradle* gradle.properties*]... 
+[36mINFO[0m[0012] COPY build.gradle settings.gradle* gradle.properties* ./ 
+[36mINFO[0m[0012] Resolving srcs [build.gradle settings.gradle* gradle.properties*]... 
+[36mINFO[0m[0012] Taking snapshot of files...                  
+[36mINFO[0m[0012] COPY gradle ./gradle                         
+[36mINFO[0m[0012] Taking snapshot of files...                  
+[36mINFO[0m[0012] COPY gradlew ./                              
+[36mINFO[0m[0012] Taking snapshot of files...                  
+[36mINFO[0m[0012] RUN chmod +x gradlew                         
+[36mINFO[0m[0012] Initializing snapshotter ...                 
+[36mINFO[0m[0012] Taking snapshot of full filesystem...        
+[36mINFO[0m[0015] Cmd: /bin/sh                                 
+[36mINFO[0m[0015] Args: [-c chmod +x gradlew]                  
+[36mINFO[0m[0015] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
+[36mINFO[0m[0015] Performing slow lookup of group ids for root 
+[36mINFO[0m[0015] Running: [/bin/sh -c chmod +x gradlew]       
+[36mINFO[0m[0015] Taking snapshot of full filesystem...        
+[36mINFO[0m[0015] No files were changed, appending empty layer to config. No layer added to image. 
+[36mINFO[0m[0015] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:2930d106d9c10e1c57bd3ea1179f2c2b42e6a164ecc645feae8f1be3bc6f19a7 to cache now 
+[36mINFO[0m[0015] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:2930d106d9c10e1c57bd3ea1179f2c2b42e6a164ecc645feae8f1be3bc6f19a7 
+[36mINFO[0m[0015] COPY src ./src                               
+[36mINFO[0m[0015] Taking snapshot of files...                  
+[36mINFO[0m[0015] RUN ./gradlew jarAll -x test --no-daemon -q  
+[36mINFO[0m[0015] Cmd: /bin/sh                                 
+[36mINFO[0m[0015] Args: [-c ./gradlew jarAll -x test --no-daemon -q] 
+[36mINFO[0m[0015] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
+[36mINFO[0m[0015] Performing slow lookup of group ids for root 
+[36mINFO[0m[0015] Running: [/bin/sh -c ./gradlew jarAll -x test --no-daemon -q] 
+Downloading http://services.gradle.org/distributions/gradle-1.11-bin.zip
 
-FAILURE: Build failed with an exception.
-
-* Where:
-Build file '/app/build.gradle' line: 305
-
-* What went wrong:
-A problem occurred evaluating root project 'app'.
-> Cannot add task 'wrapper' as a task with that name already exists.
-
-* Try:
-Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
-
-* Get more help at https://help.gradle.org
-
-BUILD FAILED in 2s
+Unzipping /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7/gradle-1.11-bin.zip to /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7
+Exception in thread "main" java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:231)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:157)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:171)
+	at org.gradle.wrapper.Install.unzip(Install.java:157)
+	at org.gradle.wrapper.Install.access$400(Install.java:26)
+	at org.gradle.wrapper.Install$1.call(Install.java:67)
+	at org.gradle.wrapper.Install$1.call(Install.java:44)
+	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:65)
+	at org.gradle.wrapper.Install.createDist(Install.java:44)
+	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:126)
+	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:56)
 error building image: error building stage: failed to execute command: waiting for process to exit: exit status 1
 ```
 
@@ -74,100 +74,34 @@ error building image: error building stage: failed to execute command: waiting f
 These are the actual files from the repository. Use these to understand how the project
 is SUPPOSED to be built — do not rely solely on the broken Dockerfile below.
 
-
-### build.gradle
-```
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'maven'
-apply plugin: 'signing'
-apply plugin: 'idea'
-apply plugin: 'project-report'
-
-sourceCompatibility = 1.6
-group = 'com.github.tomakehurst'
-version = 1.52
-
-repositories {
-	mavenCentral()
-}
-
-configurations {
-	provided
-}
-
-dependencies {
-	compile "org.mortbay.jetty:jetty:6.1.26"
-	compile "com.google.guava:guava:18.0"
-	compile "com.fasterxml.jackson.core:jackson-core:2.4.2",
-        	"com.fasterxml.jackson.core:jackson-annotations:2.4.2",
-        	"com.fasterxml.jackson.core:jackson-databind:2.4.2"
-	compile "org.apache.httpcomponents:httpclient:4.3.5"
-    compile "org.skyscreamer:jsonassert:1.2.3"
-    compile "xmlunit:xmlunit:1.5"
-    compile "com.jayway.jsonpath:json-path:0.8.1"
-	compile "org.slf4j:slf4j-api:1.7.6"
-	compile "net.sf.jopt-simple:jopt-simple:4.7"
-	compile ("junit:junit:4.11") {
-        exclude group: "org.hamcrest", module: "hamcrest-core"
-    }
-	
-    testCompile "org.hamcrest:hamcrest-all:1.3"
-	testCompile ("org.jmock:jmock:2.5.1") {
-        exclude group: "junit", module: "junit-dep"
-        exclude group: "org.hamcrest", module: "hamcrest-core"
-        exclude group: "org.hamcrest", module: "hamcrest-library"
-    }
-	testCompile ("org.jmock:jmock-junit4:2.5.1") {
-		exclude group: "junit", module: "junit-dep"
-        exclude group: "org.hamcrest", module: "hamcrest-core"
-        exclude group: "org.hamcrest", module: "hamcrest-library"
-	}
-	testCompile "net.sf.json-lib:json-lib:2.4:jdk15"
-	testCompile "com.googlecode.jarjar:jarjar:1.3"
-    testCompile "commons-io:commons-io:2.4"
-
-    testRuntime 'org.slf4j:slf4j-log4j12:1.7.7'
-    testRuntime files('src/test/resources/classpathfiles.zip')
-}
-
-test {
-    // Set the timezone for testing somewhere other than my machine to increase the chances of catching timezone bugs
-    systemProperty 'user.timezone', 'Australia/Sydney'
-}
-
-buildscript {
-    repositories {
-        maven {
-            url "https://oss.sonatype.org"
-        }
-        mavenCentral()
-... (truncated)
-```
+_No build artifact files were captured from the repository._
 
 
 ## Last attempted Dockerfile
 ```dockerfile
-FROM mirror.gcr.io/library/gradle:6.9-jdk8 AS builder
+FROM mirror.gcr.io/library/gradle:6-jdk8 AS builder
 WORKDIR /app
 
-# Copy all files to ensure build.gradle and all dependencies are present
-COPY . .
+# Copy Gradle wrapper and config first for caching
+COPY build.gradle settings.gradle* gradle.properties* ./ 
+COPY gradle ./gradle
+COPY gradlew ./
+RUN chmod +x gradlew
 
-# The project is very old (Gradle 1.11 era). 
-# 1. 'maven' plugin was renamed to 'maven-publish' in Gradle 7+.
-# 2. '<<' operator was removed in Gradle 5+.
-# We use Gradle 6.9 as a compromise, but still need to patch the build script.
-RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle
-RUN sed -i 's/<< {/doLast {/g' build.gradle
+# Copy source
+COPY src ./src
 
-# Build the standalone jar
-RUN gradle jarAll -x test --no-daemon -q
+# The error "Could not find method leftShift()" occurs because the project is being built 
+# with a Gradle version (Gradle 6) that is too new for the legacy build.gradle syntax 
+# (likely using the << operator for task configuration which was removed in Gradle 5+).
+# However, we must use the Wrapper (./gradlew) instead of the system 'gradle' 
+# to ensure the exact version the author intended is used.
+RUN ./gradlew jarAll -x test --no-daemon -q
 
 FROM mirror.gcr.io/library/eclipse-temurin:8-jre-alpine
 WORKDIR /app
 
-# Copy the generated standalone jar
+# Copy the resulting standalone jar
 COPY --from=builder /app/build/libs/*-standalone.jar app.jar
 
 EXPOSE 8080
@@ -176,7 +110,16 @@ ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-XX:+UseContainerSupport", "-j
 
 ## Last attempted nexlayer.yaml
 ```yaml
-
+application:
+  name: wiremock
+  pods:
+    - name: app
+      image: "# filled by pipeline"
+      path: /
+      servicePorts:
+        - 8080
+      vars:
+        JAVA_OPTS: "-XX:MaxRAMPercentage=75.0 -XX:+UseContainerSupport"
 ```
 
 ## Instructions for frontier model
