@@ -201,28 +201,32 @@ uploadArchives {
     }
 }
 
-task addGitTag << {
-    println "git tag ${version}".execute().text
-    println "git push origin --tags".execute().text
+task addGitTag {
+    doLast {
+        println "git tag ${version}".execute().text
+        println "git push origin --tags".execute().text
+    }
 }
 
 task release {
 	dependsOn clean, jarAll, uploadArchives, addGitTag
 }
 
-task 'set-release-dir' << {
-	if (releaseDir) {
-		releaseDirUrl = 'file://' + releaseDir
-		if (!releaseDirUrl.endsWith('/')) {
-			releaseDirUrl = releaseDirUrl + '/';
+task 'set-release-dir' {
+	doLast {
+		if (releaseDir) {
+			releaseDirUrl = 'file://' + releaseDir
+			if (!releaseDirUrl.endsWith('/')) {
+				releaseDirUrl = releaseDirUrl + '/';
+			}
+
+			tasks.uploadArchives.repositories.mavenDeployer.repository.url = releaseDirUrl
+
+			println 'Release dir set to: ' + releaseDirUrl
+		} else {
+			logger.error "Please specify release dir e.g. -P/home/me/.m2/repository"
+	        System.exit(1)
 		}
-		
-		tasks.uploadArchives.repositories.mavenDeployer.repository.url = releaseDirUrl
-		
-		println 'Release dir set to: ' + releaseDirUrl
-	} else {
-		logger.error "Please specify release dir e.g. -P/home/me/.m2/repository"
-        System.exit(1)
 	}
 }
 
@@ -230,7 +234,8 @@ task 'release-to' {
 	dependsOn 'set-release-dir', clean, jarAll, uploadArchives, addGitTag
 }
 
-task 'bump-version' << {
+task 'bump-version' {
+  doLast {
     def filesWithVersion = [
         'build.gradle': { "version = 1.${it}" },
         'docs/source/conf.py': { "version = '1.${it}'" },
@@ -258,9 +263,11 @@ task 'bump-version' << {
             }
         }
     }
+  }
 }
 
-task 'bump-version-down' << {
+task 'bump-version-down' {
+  doLast {
     def filesWithVersion = [
         'build.gradle': { "version = 1.${it}" },
         'docs/source/conf.py': { "version = '1.${it}'" },
@@ -288,13 +295,12 @@ task 'bump-version-down' << {
             }
         }
     }
+  }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
-}
 
-task 'add-copyright-headers' << {
+task 'add-copyright-headers' {
+  doLast {
 	def copyrightNotice = """/*
  * Copyright (C) 2011 Thomas Akehurst
  *
@@ -320,4 +326,5 @@ task 'add-copyright-headers' << {
  			file.text = newFileText;
 		}
 	}
+  }
 }

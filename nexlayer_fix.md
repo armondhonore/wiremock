@@ -2,7 +2,7 @@
 
 ## Fixed Dockerfile
 ```dockerfile
-FROM mirror.gcr.io/library/gradle:4.10.3-jdk8 AS builder
+FROM mirror.gcr.io/library/gradle:6.9-jdk8 AS builder
 WORKDIR /app
 COPY build.gradle settings.gradle* gradle.properties* ./
 COPY src ./src
