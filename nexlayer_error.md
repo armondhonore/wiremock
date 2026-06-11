@@ -1,71 +1,71 @@
 # Nexlayer Build Failure Report
 
-**Pipeline:** 19eb3c55cc0
+**Pipeline:** 19eb40c6ee5
 **Repository:** https://github.com/armondhonore/wiremock
-**Error category:** unknown
-**Error summary:** Build failed — see build log for details.
+**Error category:** maven_build
+**Error summary:** Gradle build failed — see build log for details.
 
 ## Build log
 ```
-[36mINFO[0m[0013] Args: [-c ./gradlew dependencies --no-daemon -q || true] 
+[36mINFO[0m[0003] Built cross stage deps: map[0:[/app/build/libs/*-standalone.jar]] 
+[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6.9-jdk8 
+[36mINFO[0m[0003] Returning cached image manifest              
+[36mINFO[0m[0003] Retrieving image manifest mirror.gcr.io/library/gradle:6.9-jdk8 
+[36mINFO[0m[0003] Returning cached image manifest              
+[36mINFO[0m[0003] Executing 0 build triggers                   
+[36mINFO[0m[0003] Building stage 'mirror.gcr.io/library/gradle:6.9-jdk8' [idx: '0', base-idx: '-1'] 
+[36mINFO[0m[0003] Checking for cached layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440... 
+[36mINFO[0m[0003] No cached layer found for cmd RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle 
+[36mINFO[0m[0003] Unpacking rootfs as cmd COPY . . requires it. 
+[36mINFO[0m[0010] WORKDIR /app                                 
+[36mINFO[0m[0010] Cmd: workdir                                 
+[36mINFO[0m[0010] Changed working directory to /app            
+[36mINFO[0m[0010] Creating directory /app with uid 0 and gid 0 
+[36mINFO[0m[0010] Taking snapshot of files...                  
+[36mINFO[0m[0010] COPY . .                                     
+[36mINFO[0m[0010] Taking snapshot of files...                  
+[36mINFO[0m[0010] RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle 
+[36mINFO[0m[0010] Initializing snapshotter ...                 
+[36mINFO[0m[0010] Taking snapshot of full filesystem...        
+[36mINFO[0m[0013] Cmd: /bin/sh                                 
+[36mINFO[0m[0013] Args: [-c sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle] 
 [36mINFO[0m[0013] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
 [36mINFO[0m[0013] Performing slow lookup of group ids for root 
-[36mINFO[0m[0013] Running: [/bin/sh -c ./gradlew dependencies --no-daemon -q || true] 
-[36mINFO[0m[0013] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:dea59899255639ab824866c88d8a86d446564d7ff493ab599b748b1e87e8904d to cache now 
-[36mINFO[0m[0013] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:dea59899255639ab824866c88d8a86d446564d7ff493ab599b748b1e87e8904d 
-Downloading http://services.gradle.org/distributions/gradle-1.11-bin.zip
-
-Unzipping /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7/gradle-1.11-bin.zip to /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7
-Exception in thread "main" java.util.zip.ZipException: zip END header not found
-	at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1776)
-	at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1659)
-	at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1666)
-	at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1470)
-	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1433)
-	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:743)
-	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:860)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:258)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:187)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:201)
-	at org.gradle.wrapper.Install.unzip(Install.java:157)
-	at org.gradle.wrapper.Install.access$400(Install.java:26)
-	at org.gradle.wrapper.Install$1.call(Install.java:67)
-	at org.gradle.wrapper.Install$1.call(Install.java:44)
-	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:65)
-	at org.gradle.wrapper.Install.createDist(Install.java:44)
-	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:126)
-	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:56)
+[36mINFO[0m[0013] Running: [/bin/sh -c sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle] 
 [36mINFO[0m[0013] Taking snapshot of full filesystem...        
-[36mINFO[0m[0014] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:bbd0e6826cb5b97a34e46ce7a684a052809d0a5c77ba4d96965947de87ad2531 to cache now 
-[36mINFO[0m[0014] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:bbd0e6826cb5b97a34e46ce7a684a052809d0a5c77ba4d96965947de87ad2531 
-[36mINFO[0m[0014] COPY src ./src                               
-[36mINFO[0m[0014] Taking snapshot of files...                  
-[36mINFO[0m[0014] RUN ./gradlew build -x test --no-daemon -q   
+[36mINFO[0m[0014] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440 to cache now 
+[36mINFO[0m[0014] RUN sed -i 's/<< {/doLast {/g' build.gradle  
 [36mINFO[0m[0014] Cmd: /bin/sh                                 
-[36mINFO[0m[0014] Args: [-c ./gradlew build -x test --no-daemon -q] 
+[36mINFO[0m[0014] Args: [-c sed -i 's/<< {/doLast {/g' build.gradle] 
 [36mINFO[0m[0014] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
 [36mINFO[0m[0014] Performing slow lookup of group ids for root 
-[36mINFO[0m[0014] Running: [/bin/sh -c ./gradlew build -x test --no-daemon -q] 
-Unzipping /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7/gradle-1.11-bin.zip to /root/.gradle/wrapper/dists/gradle-1.11-bin/4h5v8877arc3jhuqbm3osbr7o7
-Exception in thread "main" java.util.zip.ZipException: zip END header not found
-	at java.base/java.util.zip.ZipFile$Source.zerror(ZipFile.java:1776)
-	at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1659)
-	at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1666)
-	at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1470)
-	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1433)
-	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:743)
-	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:860)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:258)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:187)
-	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:201)
-	at org.gradle.wrapper.Install.unzip(Install.java:157)
-	at org.gradle.wrapper.Install.access$400(Install.java:26)
-	at org.gradle.wrapper.Install$1.call(Install.java:67)
-	at org.gradle.wrapper.Install$1.call(Install.java:44)
-	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:65)
-	at org.gradle.wrapper.Install.createDist(Install.java:44)
-	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:126)
-	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:56)
+[36mINFO[0m[0014] Running: [/bin/sh -c sed -i 's/<< {/doLast {/g' build.gradle] 
+[36mINFO[0m[0014] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:d2121e1b3a12a2159620a81943938811cd8c4176787057b43d394fd601def440 
+[36mINFO[0m[0014] Taking snapshot of full filesystem...        
+[36mINFO[0m[0014] RUN gradle jarAll -x test --no-daemon -q     
+[36mINFO[0m[0014] Cmd: /bin/sh                                 
+[36mINFO[0m[0014] Args: [-c gradle jarAll -x test --no-daemon -q] 
+[36mINFO[0m[0014] Util.Lookup returned: &{Uid:0 Gid:0 Username:root Name: HomeDir:/root} 
+[36mINFO[0m[0014] Performing slow lookup of group ids for root 
+[36mINFO[0m[0014] Pushing layer registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:cec50dd75bfe6327e436faaec785bbe67e2414711d104aa759bd6f8a8045e632 to cache now 
+[36mINFO[0m[0014] Running: [/bin/sh -c gradle jarAll -x test --no-daemon -q] 
+[36mINFO[0m[0014] Pushing image to registry.nexlayer.io/user_01kdnssc62qqm62tzknxz587jq/kaniko-cache:cec50dd75bfe6327e436faaec785bbe67e2414711d104aa759bd6f8a8045e632 
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/app/build.gradle' line: 305
+
+* What went wrong:
+A problem occurred evaluating root project 'app'.
+> Cannot add task 'wrapper' as a task with that name already exists.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
 error building image: error building stage: failed to execute command: waiting for process to exit: exit status 1
 ```
 
@@ -148,28 +148,27 @@ buildscript {
 
 ## Last attempted Dockerfile
 ```dockerfile
-FROM mirror.gcr.io/library/gradle:7.6-jdk11 AS builder
+FROM mirror.gcr.io/library/gradle:6.9-jdk8 AS builder
 WORKDIR /app
 
-# Cache dependencies separately to avoid wrapper issues
-COPY build.gradle settings.gradle* gradle.properties* ./ 
-COPY gradle ./gradle
-COPY gradlew ./
-RUN chmod +x gradlew
+# Copy all files to ensure build.gradle and all dependencies are present
+COPY . .
 
-# This pre-fetches the wrapper distribution to avoid the ZipException seen during 'build'
-RUN ./gradlew dependencies --no-daemon -q || true
+# The project is very old (Gradle 1.11 era). 
+# 1. 'maven' plugin was renamed to 'maven-publish' in Gradle 7+.
+# 2. '<<' operator was removed in Gradle 5+.
+# We use Gradle 6.9 as a compromise, but still need to patch the build script.
+RUN sed -i 's/apply plugin: "maven"/apply plugin: "maven-publish"/g' build.gradle
+RUN sed -i 's/<< {/doLast {/g' build.gradle
 
-COPY src ./src
+# Build the standalone jar
+RUN gradle jarAll -x test --no-daemon -q
 
-# Build the jar, skipping tests
-RUN ./gradlew build -x test --no-daemon -q
-
-FROM mirror.gcr.io/library/eclipse-temurin:11-jre-alpine
+FROM mirror.gcr.io/library/eclipse-temurin:8-jre-alpine
 WORKDIR /app
 
-# Copy the resulting jar from the builder stage
-COPY --from=builder /app/build/libs/*.jar app.jar
+# Copy the generated standalone jar
+COPY --from=builder /app/build/libs/*-standalone.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-XX:+UseContainerSupport", "-jar", "app.jar"]
@@ -177,16 +176,7 @@ ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-XX:+UseContainerSupport", "-j
 
 ## Last attempted nexlayer.yaml
 ```yaml
-application:
-  name: wiremock
-  pods:
-    - name: app
-      image: "# filled by pipeline"
-      path: /
-      servicePorts:
-        - 8080
-      vars:
-        JAVA_OPTS: "-XX:MaxRAMPercentage=75.0 -XX:+UseContainerSupport"
+
 ```
 
 ## Instructions for frontier model
