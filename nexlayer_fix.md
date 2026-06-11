@@ -2,7 +2,7 @@
 
 ## Fixed Dockerfile
 ```dockerfile
-FROM mirror.gcr.io/library/gradle:6.9-jdk8 AS builder
+FROM mirror.gcr.io/library/gradle:4.10.3-jdk8 AS builder
 WORKDIR /app
 COPY build.gradle settings.gradle* gradle.properties* ./
 COPY src ./src
@@ -30,8 +30,10 @@ application:
 ```
 
 ## Notes
-The gradle-wrapper.properties pinned Gradle 1.11 whose zip download fails in Kaniko (ZipException).
-The build.gradle uses legacy `compile` configuration and `apply plugin: 'maven'` — requires Gradle <= 6.x (removed in Gradle 7).
-Fix: use the pre-installed system `gradle` binary from the gradle:6.9-jdk8 base image — no wrapper download at all.
-DO NOT use ./gradlew — even with the updated wrapper (now 6.9.4), the system gradle is more reliable in Kaniko.
-DO NOT use Gradle 7+ — the maven plugin was removed and this build.gradle depends on it.
+- build.gradle uses `<<` (leftShift) task syntax removed in Gradle 5.0 — must use Gradle 4.x
+- build.gradle uses `compile` config and `apply plugin: 'maven'` removed in Gradle 7 — must use Gradle <= 6.x
+- Combined constraint: Gradle 4.10.3 (last 4.x release)
+- Use system `gradle` binary from the base image — DO NOT use ./gradlew (wrapper pins Gradle 1.11 which fails to download in Kaniko)
+- DO NOT use Gradle 5+ — leftShift removed
+- DO NOT use Gradle 7+ — maven plugin removed
+- build.gradle jarAll task's project.artifacts.add() with map-cast-as-PublishArtifact fails in Gradle 4.x due to internal decoration changes; that block was removed (only needed for Maven publishing, not Docker deployment)
