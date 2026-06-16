@@ -1,6 +1,6 @@
 # Nexlayer — wiremock
 
-<!-- nexlayer:meta version=1 analyzed=2026-06-10T15:41:21Z repo=https://github.com/armondhonore/wiremock branch=master -->
+<!-- nexlayer:meta version=1 analyzed=2026-06-16T00:00:38Z repo=https://github.com/armondhonore/wiremock branch=master -->
 
 > **For AI agents (Claude Code, Cursor, Gemini CLI, Copilot):**
 > This file is the **project context** for this Nexlayer deployment — tech stack, env vars, secrets, live URL.
@@ -15,7 +15,7 @@
 
 ## Project Summary
 <!-- nexlayer:section agent-managed=project_summary -->
-WireMock is a HTTP web service test double that allows for response stubbing, request verification, and fault injection. It can be run as a standalone process, within unit tests, or as a WAR application.
+WireMock is a HTTP web service test double that allows for request stubbing, verification, and fault injection. It can run as a standalone process, a unit test tool, or a WAR application.
 <!-- nexlayer:end -->
 
 ## Technology Stack
@@ -23,17 +23,18 @@ WireMock is a HTTP web service test double that allows for response stubbing, re
 | Name | Kind | Version | Detected From |
 |------|------|---------|---------------|
 | Java | language | 1.6 | build.gradle |
+| Gradle | build | 6.9 | Dockerfile |
 | Jetty | framework | 6.1.26 | build.gradle |
-| Gradle | build | Not specified | build.gradle |
-| JUnit | tool | 4.11 | build.gradle |
+| Jackson | tool | 2.4.2 | build.gradle |
+| Guava | tool | 18.0 | build.gradle |
 <!-- nexlayer:end -->
 
 ## Repository Structure
 <!-- nexlayer:section agent-managed=structure_map -->
-- src/ — Main application source code
+- src/ — Java source code for the core WireMock library
 - docs/ — Project documentation
-- sample-war/ — Example WAR deployment configuration
-- build.gradle — Gradle build configuration and dependency management
+- sample-war/ — Example configuration for deploying as a WAR file
+- build.gradle — Project build configuration and dependencies
 <!-- nexlayer:end -->
 
 ## External Services Required
@@ -45,13 +46,13 @@ _No external services detected._
 <!-- nexlayer:section user-editable=local_setup -->
 ### Prerequisites
 
-- JDK 1.6 (or compatible)
-- Gradle
+- JDK 8 or 11
+- Gradle 6.9+
 
 ### Steps
 
-1. `./gradlew build` — Compile the project and run tests
-2. `java -jar build/libs/wiremock-standalone.jar` — Start WireMock as a standalone server
+1. `./gradlew jarAll` — Build the standalone executable JAR
+2. `java -jar build/libs/wiremock-standalone.jar` — Start WireMock server on http://localhost:8080
 
 <!-- nexlayer:end -->
 
@@ -61,7 +62,7 @@ _No external services detected._
 
 | Pod | Variable | Value | Kind |
 |-----|----------|-------|------|
-| `app` | `JAVA_OPTS` | `"-XX:MaxRAMPercentage=75.0 -XX:+UseContainerSupport"` | plain |
+| `wiremock` | `JAVA_OPTS` | `"-XX:MaxRAMPercentage=75.0 -XX:+UseContainerSupport"` | plain |
 
 ### nexlayer.yaml
 
@@ -69,7 +70,7 @@ _No external services detected._
 application:
   name: warm-vale-wiremock
   pods:
-    - name: app
+    - name: wiremock
       image: "# filled by pipeline"
       path: /
       servicePorts:
@@ -86,12 +87,12 @@ application:
 
 | Pod | Image | Port | Role |
 |-----|-------|------|------|
-| wiremock | mirror.gcr.io/library/openjdk:8-jre-alpine | 8080 | web |
+| wiremock | mirror.gcr.io/library/eclipse-temurin:11-jre-focal | 8080 | web |
 
 ### Deployment notes
 
-- The project is legacy Java 1.6; using openjdk:8-jre-alpine for runtime compatibility as it is the most stable mirrored image supporting legacy bytecode.
-- Since WireMock is a stateless mock server, it runs as a single pod without a database requirement.
+- Single pod deployment as the application is a stateless test double.
+- Image follows Nexlayer mirror.gcr.io guidelines for official libraries.
 
 <!-- nexlayer:end -->
 
@@ -102,7 +103,7 @@ application:
 
 ## Nexlayer Configuration
 <!-- nexlayer:section agent-managed=nexlayer_config -->
-**Last deployed:** 2026-06-10T15:47:34Z  
+**Last deployed:** 2026-06-16T00:27:04Z  
 **Live URL:** https://awesome-moose-warm-vale-wiremock.cloud.nexlayer.ai  
 **Runtime:** java · **Port:** 8080  
 **Deploy branch:** master  
@@ -111,7 +112,7 @@ application:
 application:
   name: warm-vale-wiremock
   pods:
-    - name: app
+    - name: wiremock
       image: "# filled by pipeline"
       path: /
       servicePorts:
@@ -125,6 +126,6 @@ application:
 <!-- nexlayer:section agent-managed=build_history -->
 | Date | Status | Notes |
 |------|--------|-------|
-| 2026-06-10T15:41:21Z | analyzed | initial repo analysis |
-| 2026-06-10T15:47:34Z | success | deployed https://awesome-moose-warm-vale-wiremock.cloud.nexlayer.ai |
+| 2026-06-16T00:00:38Z | analyzed | initial repo analysis |
+| 2026-06-16T00:27:04Z | success | deployed https://awesome-moose-warm-vale-wiremock.cloud.nexlayer.ai |
 <!-- nexlayer:end -->
